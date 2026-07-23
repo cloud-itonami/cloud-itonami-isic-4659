@@ -76,6 +76,27 @@
     the Export Control Order 2008 (SI 2008/3231) -- Category 2
     (Materials Processing), structurally equivalent (same Wassenaar-
     derived numbering) to the EU Annex I list it diverged from.
+  - ITA: since 11 August 2023 (Decreto Legislativo 15 dicembre 2017,
+    n. 221, art. 4, current text -- the article's text was amended
+    four times; this is the version in force with no end date as of
+    verification), the Autorita' nazionale -- UAMA (Unita' per le
+    Autorizzazioni dei Materiali di Armamento), housed within the
+    Ministero degli Affari Esteri e della Cooperazione Internazionale
+    (MAECI) and established by Legge 9 luglio 1990, n. 185, art. 7-bis,
+    is the Autorita' competente for dual-use goods, implementing the
+    SAME Regulation (EU) 2021/821 Annex I Category 2 that DEU's BAFA
+    administers (both EU member states apply the directly-applicable
+    EU regulation). UAMA is structurally distinct from BAFA/ECJU/METI
+    in one respect worth flagging: it consolidates conventional-arms
+    export licensing (Legge 185/1990) AND dual-use goods export
+    licensing (D.Lgs. 221/2017) into a single authority, rather than
+    a dual-use-only dedicated agency. [CONFIDENCE: high -- verified
+    directly against the currently-in-force statutory text on
+    Normattiva (the Italian State's official portal for legge vigente)
+    and against MAECI's own UAMA page (fetched via the Internet
+    Archive Wayback Machine because the live esteri.it triggers
+    Radware bot-detection on automated fetches); see git history for
+    the exact quoted text and retrieval trail.]
 
   The required-evidence set (credit-clearance record, contract/PO,
   sanctions-screening (OFAC/equivalent) record, military end-use/end-
@@ -138,6 +159,15 @@
           :legal-basis "Export Control Order 2008 (SI 2008/3231)"
           :classification-list "UK Strategic Export Control Lists, Category 2 (Materials Processing)"
           :provenance "https://www.gov.uk/guidance/beginners-guide-to-export-controls"
+          :required-evidence ["credit-clearance record"
+                              "contract/PO"
+                              "sanctions-screening (OFAC/equivalent) record"
+                              "military end-use/end-user screening record"]}
+   "ITA" {:name "ITA"
+          :owner-authority "Autorità nazionale -- UAMA (Unità per le Autorizzazioni dei Materiali di Armamento), Ministero degli Affari Esteri e della Cooperazione Internazionale (MAECI)"
+          :legal-basis "Regulation (EU) 2021/821 (dual-use export-control recast, directly applicable); Decreto Legislativo 15 dicembre 2017, n. 221, art. 4 (national competent-authority designation, text in force since 11 August 2023); Legge 9 luglio 1990, n. 185, art. 7-bis (establishes UAMA at MAECI)"
+          :classification-list "Annex I, Category 2 (Materials Processing) -- numerically controlled machine tools, same Wassenaar-derived 2B001-lineage item numbering as DEU/GBR/USA"
+          :provenance "http://web.archive.org/web/20250922093830/https://www.esteri.it/it/ministero/struttura/uama/"
           :required-evidence ["credit-clearance record"
                               "contract/PO"
                               "sanctions-screening (OFAC/equivalent) record"
