@@ -44,6 +44,16 @@
     (is (= 8 (:covered report)))
     (is (= ["CHE" "DEU" "GBR" "ITA" "JPN" "NLD" "SWE" "USA"] (:covered-jurisdictions report)))))
 
+(deftest nor-has-a-spec-basis
+  (is (some? (facts/spec-basis "NOR")))
+  (is (string? (:provenance (facts/spec-basis "NOR"))))
+  (is (string? (:classification-list (facts/spec-basis "NOR")))))
+
+(deftest coverage-includes-nor-alongside-all-others
+  (let [report (facts/coverage ["USA" "JPN" "DEU" "GBR" "ITA" "NLD" "CHE" "SWE" "NOR"])]
+    (is (= 9 (:covered report)))
+    (is (= ["CHE" "DEU" "GBR" "ITA" "JPN" "NLD" "NOR" "SWE" "USA"] (:covered-jurisdictions report)))))
+
 (deftest unknown-jurisdiction-has-no-fabricated-spec-basis
   (is (nil? (facts/spec-basis "ATL"))))
 
