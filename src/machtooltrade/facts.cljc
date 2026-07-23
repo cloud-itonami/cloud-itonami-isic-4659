@@ -97,6 +97,37 @@
     Archive Wayback Machine because the live esteri.it triggers
     Radware bot-detection on automated fetches); see git history for
     the exact quoted text and retrieval trail.]
+  - NLD: the Centrale Dienst voor In- en Uitvoer (CDIU, Central Import
+    and Export Office), part of Belastingdienst/Douane (the Dutch
+    Customs Administration), is the licensing/notification authority
+    for strategic goods -- it grants the export/transit authorisations
+    (or receives notifications) for dual-use and military goods, and
+    handles classification requests for whether a given good falls
+    within the control lists. Like DEU and ITA, the Netherlands is an
+    EU member state and therefore applies the SAME directly-applicable
+    Regulation (EU) 2021/821 (dual-use export-control recast) Annex I
+    Category 2 (Materials Processing) as the substantive control list
+    -- the Dutch implementing decree, the Besluit strategische
+    goederen (Strategic Goods Decree, BWBR0024139), defines
+    'Verordening producten voor tweeërlei gebruik' (the dual-use
+    products Regulation) in its own Artikel 1 definitions section as
+    exactly this recast regulation, citing it by its Official Journal
+    reference '(PbEU 2021, L 206)' -- Regulation (EU) 2021/821 was
+    itself published in OJ L 206 of 11 June 2021, confirming this is
+    the SAME 2021 recast DEU/ITA cite, not the superseded 2009
+    predecessor (Regulation (EC) 428/2009) that an older, unrelated
+    government.nl overview page (last modified 2019, before the 2021
+    recast existed) still references -- that stale page was NOT used
+    as the basis for this entry. [CONFIDENCE: high -- the Besluit
+    strategische goederen definition and the CDIU's role were both
+    verified directly against primary Dutch-government sources: the
+    decree's current consolidated text on wetten.overheid.nl (the
+    Dutch State's official portal for geldende wet- en regelgeving,
+    version in force since 2025-02-05), and the CDIU's own strategic-
+    goods page (fetched via the Internet Archive Wayback Machine
+    because the page has since moved/been retired on the live
+    belastingdienst.nl site -- a 404, not a bot-detection block); see
+    git history for the exact quoted text and retrieval trail.]
 
   The required-evidence set (credit-clearance record, contract/PO,
   sanctions-screening (OFAC/equivalent) record, military end-use/end-
@@ -168,6 +199,15 @@
           :legal-basis "Regulation (EU) 2021/821 (dual-use export-control recast, directly applicable); Decreto Legislativo 15 dicembre 2017, n. 221, art. 4 (national competent-authority designation, text in force since 11 August 2023); Legge 9 luglio 1990, n. 185, art. 7-bis (establishes UAMA at MAECI)"
           :classification-list "Annex I, Category 2 (Materials Processing) -- numerically controlled machine tools, same Wassenaar-derived 2B001-lineage item numbering as DEU/GBR/USA"
           :provenance "http://web.archive.org/web/20250922093830/https://www.esteri.it/it/ministero/struttura/uama/"
+          :required-evidence ["credit-clearance record"
+                              "contract/PO"
+                              "sanctions-screening (OFAC/equivalent) record"
+                              "military end-use/end-user screening record"]}
+   "NLD" {:name "NLD"
+          :owner-authority "Centrale Dienst voor In- en Uitvoer (CDIU), Belastingdienst/Douane (Dutch Customs Administration)"
+          :legal-basis "Regulation (EU) 2021/821 (dual-use export-control recast, directly applicable); Besluit strategische goederen (Strategic Goods Decree, BWBR0024139), Artikel 1-4c"
+          :classification-list "Annex I, Category 2 (Materials Processing) -- numerically controlled machine tools, same Wassenaar-derived 2B001-lineage item numbering as DEU/GBR/ITA/USA"
+          :provenance "http://web.archive.org/web/20250712135758/https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/customs/safety_health_economy_and_environment/cdiu_cluster/strategic_goods/strategic_goods"
           :required-evidence ["credit-clearance record"
                               "contract/PO"
                               "sanctions-screening (OFAC/equivalent) record"

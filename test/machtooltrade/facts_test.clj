@@ -14,6 +14,16 @@
     (is (seq (facts/evidence-checklist iso3)) (str iso3 " required-evidence"))
     (is (string? (:classification-list (facts/spec-basis iso3))) (str iso3 " classification-list"))))
 
+(deftest nld-has-a-spec-basis
+  (is (some? (facts/spec-basis "NLD")))
+  (is (string? (:provenance (facts/spec-basis "NLD"))))
+  (is (string? (:classification-list (facts/spec-basis "NLD")))))
+
+(deftest coverage-includes-nld-alongside-all-others
+  (let [report (facts/coverage ["USA" "JPN" "DEU" "GBR" "ITA" "NLD"])]
+    (is (= 6 (:covered report)))
+    (is (= ["DEU" "GBR" "ITA" "JPN" "NLD" "USA"] (:covered-jurisdictions report)))))
+
 (deftest unknown-jurisdiction-has-no-fabricated-spec-basis
   (is (nil? (facts/spec-basis "ATL"))))
 
