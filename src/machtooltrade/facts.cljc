@@ -201,6 +201,54 @@
     server-rendered), which independently confirms 'The ISP decides
     export cases regarding dual-use items.' See git history for the
     exact quoted text and retrieval trail.]
+  - NOR: UNLIKE DEU/ITA/NLD/SWE, Norway is not an EU member state (it
+    is EEA/EFTA) and therefore does not apply Regulation (EU) 2021/821
+    directly -- but unlike CHE (which runs a fully independent national
+    control list), Norway VOLUNTARILY adopts the EU's own control
+    lists wholesale into its national regulation: 'Norway uses the
+    EU's control lists to ensure that we understand and implement the
+    control in a manner as consistent as possible with other European
+    countries,' per DEKSA's own 'Control lists' page -- a THIRD
+    distinct EU-relationship pattern this catalog now covers, alongside
+    direct EU-regulation applicability (DEU/ITA/NLD/SWE) and a fully
+    independent national list (CHE). The regulatory framework consists
+    of the Export Control Act (Act of 18 December 1987 on control of
+    the export of strategic goods, services, technology, etc.) and the
+    Export Control Regulation (Regulation of 19 June 2013 No. 718
+    relating to the export of defence-related products, dual-use
+    items, technology and services, Ministry of Foreign Affairs). The
+    Act's own operative text: 'goods and technology that may be
+    significant for the development, production, or use of products
+    for military purposes by other countries, or that can directly
+    contribute to developing a country's military capabilities, as
+    well as goods and technology that can be used to carry out
+    terrorist acts, cf. the Penal Code paragraph 131, must not be
+    exported from Norway without special permission.' The licensing
+    authority is a BRAND-NEW agency: the Norwegian Agency for Export
+    Control and Sanctions (DEKSA) -- established by Royal Resolution
+    on 9 February 2024, with administrative responsibility for this
+    regulatory framework transferred from the Ministry of Foreign
+    Affairs to DEKSA only on 1 January 2025, per DEKSA's own 'Mandate
+    and Responsibility' page. The Export Control Regulation's own
+    Control List II (dual-use items) mirrors the EU's numbered
+    category structure -- e.g. 'Category 6, which includes sensors and
+    lasers' -- so machine tools fall under the same Wassenaar/EU-
+    derived Category 2 (Materials Processing) numbering as DEU/GBR/
+    ITA/NLD/SWE/USA. [CONFIDENCE: high -- verified directly against
+    three live, server-rendered deksa.no pages (regulatory-framework,
+    control-lists, mandate-and-responsibility -- all HTTP 200, no
+    bot-detection), each quoted verbatim above. NOTE: regjeringen.no
+    (the Norwegian government's own general portal, which used to host
+    this material before DEKSA's 2024/2025 establishment) triggers a
+    Cloudflare 'Just a moment' bot-detection challenge on automated
+    fetches -- per this fleet's hard safety-floor rule that page was
+    NOT bypassed and no Wayback Machine snapshot exists for it either;
+    lovdata.no (Norway's official statute database) also blocked a
+    search-endpoint request with a Varnish WAF 405 and 404'd on two
+    guessed direct URLs for the Export Control Act, so this entry
+    relies entirely on DEKSA's own authoritative restatement rather
+    than the raw statute text. See git history for the exact quoted
+    text and retrieval trail.]
 
   The required-evidence set (credit-clearance record, contract/PO,
   sanctions-screening (OFAC/equivalent) record, military end-use/end-
@@ -299,6 +347,15 @@
           :legal-basis "Regulation (EU) 2021/821 (dual-use export-control recast, directly applicable); Lag (2000:1064) om kontroll av produkter med dubbla användningsområden och av tekniskt bistånd (Act on the Control of Dual-Use Products and of Technical Assistance, as amended through SFS 2024:840), 4 §"
           :classification-list "Annex I, Category 2 (Materials Processing) -- numerically controlled machine tools, same Wassenaar-derived 2B001-lineage item numbering as DEU/GBR/ITA/NLD/USA"
           :provenance "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20001064-om-kontroll-av-produkter-med_sfs-2000-1064/"
+          :required-evidence ["credit-clearance record"
+                              "contract/PO"
+                              "sanctions-screening (OFAC/equivalent) record"
+                              "military end-use/end-user screening record"]}
+   "NOR" {:name "NOR"
+          :owner-authority "Norwegian Agency for Export Control and Sanctions (DEKSA), established by Royal Resolution 9 February 2024, administrative responsibility transferred from the Ministry of Foreign Affairs on 1 January 2025"
+          :legal-basis "Act of 18 December 1987 on control of the export of strategic goods, services, technology, etc. (Export Control Act); Regulation of 19 June 2013 No. 718 relating to the export of defence-related products, dual-use items, technology and services (Export Control Regulation), Ministry of Foreign Affairs"
+          :classification-list "Control List II (dual-use items), an annex to the Export Control Regulation -- Norway adopts the EU's own control lists wholesale, so machine tools fall under the same Wassenaar/EU-derived Category 2 (Materials Processing) numbering as DEU/GBR/ITA/NLD/SWE/USA"
+          :provenance "https://deksa.no/en/export-control/do-you-need-a-licence/regulatory-framework/"
           :required-evidence ["credit-clearance record"
                               "contract/PO"
                               "sanctions-screening (OFAC/equivalent) record"
