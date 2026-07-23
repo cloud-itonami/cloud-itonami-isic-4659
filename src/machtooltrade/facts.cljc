@@ -128,6 +128,47 @@
     because the page has since moved/been retired on the live
     belastingdienst.nl site -- a 404, not a bot-detection block); see
     git history for the exact quoted text and retrieval trail.]
+  - CHE: UNLIKE DEU/ITA/NLD, Switzerland is not an EU member state and
+    therefore does not apply Regulation (EU) 2021/821 directly -- it is
+    nonetheless a Wassenaar Arrangement participating state with its
+    OWN national dual-use export-control regime: the Bundesgesetz
+    ueber die Kontrolle zivil und militaerisch verwendbarer Gueter,
+    besonderer militaerischer Gueter sowie strategischer Gueter
+    (Gueterkontrollgesetz, GKG -- Federal Act on the Control of
+    Dual-Use Goods, Specific Military Goods and Strategic Goods, Goods
+    Control Act/GCA), SR 946.202, of 13 December 1996, and its
+    implementing Gueterkontrollverordnung (Goods Control Ordinance,
+    GCO), SR 946.202.1. The State Secretariat for Economic Affairs
+    (SECO) is, in its own words, 'the licensing authority for the
+    export of dual-use goods and for specific military goods'.
+    Industrial products are classified as dual-use goods if they meet
+    the technical control criteria in Annex 2 (Part 1 or Part 2) of
+    the GCO -- like the EU's Annex I, the US CCL and Japan's Appended
+    Table 1, this annex is itself Wassenaar-derived, so it carries the
+    same 2B001-lineage machine-tool item numbering. Goods covered by
+    the GCO annexes require a formal export licence under Article 3(1)
+    GCO regardless of destination; Article 3(3) GCO extends the
+    licence requirement to goods incorporating listed components as
+    a main element or more than 25% of value; Article 3(4) GCO is
+    Switzerland's own catch-all, requiring a licence for an otherwise-
+    uncontrolled good the exporter knows or has reason to believe is
+    intended for NBC-weapon development, manufacture, use, transfer or
+    deployment -- structurally analogous to (but legally distinct
+    from) the EAR's Military End User Rule and Japan's Article 4
+    catch-all. [CONFIDENCE: high -- verified directly against SECO's
+    own 'Legal Basis and Forms' page (a live, server-rendered
+    seco.admin.ch page, not a Wayback fetch), which names SECO as
+    licensing authority and cites GCA/GCO by their official CC
+    (Classified Compilation) numbers 946.202 and 946.202.1 with
+    fedlex.admin.ch links; the SECO page's own quoted text on Annex 2
+    classification and Articles 3(1)/3(3)/3(4) GCO was independently
+    re-checked verbatim against the raw fetched HTML before this entry
+    was committed. The GCA/GCO statutory text itself on fedlex.admin.ch
+    is a JS-required Angular shell (not bot-detection -- the page's own
+    noscript warning states it needs a JavaScript-capable browser), so
+    this entry relies on SECO's own authoritative restatement of the
+    provisions rather than the raw statute text; see git history for
+    the exact quoted text and retrieval trail.]
 
   The required-evidence set (credit-clearance record, contract/PO,
   sanctions-screening (OFAC/equivalent) record, military end-use/end-
@@ -208,6 +249,15 @@
           :legal-basis "Regulation (EU) 2021/821 (dual-use export-control recast, directly applicable); Besluit strategische goederen (Strategic Goods Decree, BWBR0024139), Artikel 1-4c"
           :classification-list "Annex I, Category 2 (Materials Processing) -- numerically controlled machine tools, same Wassenaar-derived 2B001-lineage item numbering as DEU/GBR/ITA/USA"
           :provenance "http://web.archive.org/web/20250712135758/https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/customs/safety_health_economy_and_environment/cdiu_cluster/strategic_goods/strategic_goods"
+          :required-evidence ["credit-clearance record"
+                              "contract/PO"
+                              "sanctions-screening (OFAC/equivalent) record"
+                              "military end-use/end-user screening record"]}
+   "CHE" {:name "CHE"
+          :owner-authority "State Secretariat for Economic Affairs (SECO)"
+          :legal-basis "Federal Act on the Control of Dual-Use Goods, Specific Military Goods and Strategic Goods (Goods Control Act, GCA), SR 946.202, of 13 December 1996; Ordinance on the Control of Dual-Use Goods, Specific Military Goods and Strategic Goods (Goods Control Ordinance, GCO), SR 946.202.1, Art. 3(1)/(3)/(4)"
+          :classification-list "GCO Annex 2 (Part 1 or Part 2) -- dual-use goods, Wassenaar-derived shared numbering with the EU Annex I / US CCL 2B001; GCO Annex 3 -- specific military goods"
+          :provenance "https://www.seco.admin.ch/en/industrial-goods-legal-basis"
           :required-evidence ["credit-clearance record"
                               "contract/PO"
                               "sanctions-screening (OFAC/equivalent) record"
