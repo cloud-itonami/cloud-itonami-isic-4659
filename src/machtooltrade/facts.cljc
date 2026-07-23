@@ -169,6 +169,38 @@
     this entry relies on SECO's own authoritative restatement of the
     provisions rather than the raw statute text; see git history for
     the exact quoted text and retrieval trail.]
+  - SWE: like DEU/ITA/NLD, Sweden is an EU member state and applies
+    the SAME directly-applicable Regulation (EU) 2021/821 (dual-use
+    export-control recast) as the substantive control list. Sweden's
+    OWN supplementary national implementing statute, Lag (2000:1064)
+    om kontroll av produkter med dubbla användningsområden och av
+    tekniskt bistånd (Act (2000:1064) on the Control of Dual-Use
+    Products and of Technical Assistance, as amended through SFS
+    2024:840), is UNUSUAL among this catalog's entries in that its own
+    Section 4 (4 §) NAMES the licensing authority directly in the
+    statutory text itself: 'Frågor om tillstånd och förbud enligt
+    Europaparlamentets och rådets förordning (EU) 2021/821, denna
+    lag eller föreskrifter som har meddelats med stöd av lagen
+    prövas av Inspektionen för strategiska produkter eller den
+    myndighet som regeringen bestämmer' ('Questions concerning
+    permits and prohibitions under Regulation (EU) 2021/821 ..., this
+    Act, or regulations issued under this Act, are examined by the
+    Inspectorate of Strategic Products (ISP) or the authority
+    determined by the Government') -- unlike DEU/ITA/NLD/CHE, where
+    the licensing authority is confirmed via the authority's OWN
+    website rather than the statute naming it explicitly. [CONFIDENCE:
+    high -- verified directly against the current consolidated text
+    of Lag (2000:1064) on riksdagen.se (Sveriges riksdag's official
+    Svensk författningssamling portal, a live, server-rendered page,
+    HTTP 200, no bot-detection), which quotes SFS 2000:1064 Section 1
+    ('Lagen innehåller kompletterande bestämmelser till ...
+    förordning (EU) 2021/821 ...' -- 'The Act contains supplementary
+    provisions to ... Regulation (EU) 2021/821') and Section 4 as
+    above verbatim; cross-checked against ISP's own English-language
+    'Our assignments' page (isp.se/eng/our-assignments/, also live and
+    server-rendered), which independently confirms 'The ISP decides
+    export cases regarding dual-use items.' See git history for the
+    exact quoted text and retrieval trail.]
 
   The required-evidence set (credit-clearance record, contract/PO,
   sanctions-screening (OFAC/equivalent) record, military end-use/end-
@@ -258,6 +290,15 @@
           :legal-basis "Federal Act on the Control of Dual-Use Goods, Specific Military Goods and Strategic Goods (Goods Control Act, GCA), SR 946.202, of 13 December 1996; Ordinance on the Control of Dual-Use Goods, Specific Military Goods and Strategic Goods (Goods Control Ordinance, GCO), SR 946.202.1, Art. 3(1)/(3)/(4)"
           :classification-list "GCO Annex 2 (Part 1 or Part 2) -- dual-use goods, Wassenaar-derived shared numbering with the EU Annex I / US CCL 2B001; GCO Annex 3 -- specific military goods"
           :provenance "https://www.seco.admin.ch/en/industrial-goods-legal-basis"
+          :required-evidence ["credit-clearance record"
+                              "contract/PO"
+                              "sanctions-screening (OFAC/equivalent) record"
+                              "military end-use/end-user screening record"]}
+   "SWE" {:name "SWE"
+          :owner-authority "Inspektionen för strategiska produkter (Inspectorate of Strategic Products, ISP)"
+          :legal-basis "Regulation (EU) 2021/821 (dual-use export-control recast, directly applicable); Lag (2000:1064) om kontroll av produkter med dubbla användningsområden och av tekniskt bistånd (Act on the Control of Dual-Use Products and of Technical Assistance, as amended through SFS 2024:840), 4 §"
+          :classification-list "Annex I, Category 2 (Materials Processing) -- numerically controlled machine tools, same Wassenaar-derived 2B001-lineage item numbering as DEU/GBR/ITA/NLD/USA"
+          :provenance "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20001064-om-kontroll-av-produkter-med_sfs-2000-1064/"
           :required-evidence ["credit-clearance record"
                               "contract/PO"
                               "sanctions-screening (OFAC/equivalent) record"
