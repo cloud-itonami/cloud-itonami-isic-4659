@@ -38,10 +38,9 @@
   order was dispatched or invoiced, on what jurisdictional and
   technical basis, approved by whom -- always a query over an
   immutable log."
-  (:require #?(:clj  [clojure.edn :as edn]
-               :cljs [cljs.reader :as edn])
-            [machtooltrade.registry :as registry]
-            [langchain.db :as d]))
+  (:require [machtooltrade.registry :as registry]
+            [langchain.db :as d]
+            [langchain-store.core :as ls]))
 
 (defprotocol Store
   (machine-order [s id])
@@ -278,9 +277,6 @@
    :dispatch-sequence/jurisdiction       {:db/unique :db.unique/identity}
    :invoice-sequence/jurisdiction        {:db/unique :db.unique/identity}})
 
-(defn- enc [v] (pr-str v))
-(defn- dec* [s] (when s (edn/read-string s)))
-
 ;; Every machine-order field is stored as its own Datomic attr so a
 ;; governor pull reads the exact ground truth (no blob decode). Boolean
 ;; fields are coerced on read so a missing attr reads back as false
@@ -316,7 +312,7 @@
   (reduce (fn [tx [k attr kind]]
             (let [v (get mo k)]
               (cond-> tx
-                (some? v) (assoc attr (if (= kind :kw) (enc v) v)))))
+                (some? v) (assoc attr (if (= kind :kw) (ls/enc v) v)))))
           {:machine-order/id (:id mo)}
           machine-order-fields))
 
@@ -328,7 +324,7 @@
               (let [v (get m attr)]
                 (cond
                   (= kind :bool)  (assoc mo k (boolean v))
-                  (= kind :kw)    (cond-> mo (some? v) (assoc k (dec* v)))
+                  (= kind :kw)    (cond-> mo (some? v) (assoc k (ls/dec* v)))
                   (some? v)       (assoc mo k v)
                   :else           mo)))
             {:id (:machine-order/id m)}
@@ -343,21 +339,21 @@
          (map #(pull->machine-order (d/pull (d/db conn) machine-order-pull [:machine-order/id %])))
          (sort-by :id)))
   (assessment-of [_ machine-order-id]
-    (dec* (d/q '[:find ?p . :in $ ?moid
+    (ls/dec* (d/q '[:find ?p . :in $ ?moid
                 :where [?a :assessment/machine-order-id ?moid] [?a :assessment/payload ?p]]
               (d/db conn) machine-order-id)))
   (ledger [_]
     (->> (d/q '[:find ?s ?f :where [?e :ledger/seq ?s] [?e :ledger/fact ?f]] (d/db conn))
          (sort-by first)
-         (mapv (comp dec* second))))
+         (mapv (comp ls/dec* second))))
   (dispatch-history [_]
     (->> (d/q '[:find ?s ?r :where [?e :dispatch/seq ?s] [?e :dispatch/record ?r]] (d/db conn))
          (sort-by first)
-         (mapv (comp dec* second))))
+         (mapv (comp ls/dec* second))))
   (invoice-history [_]
     (->> (d/q '[:find ?s ?r :where [?e :invoice/seq ?s] [?e :invoice/record ?r]] (d/db conn))
          (sort-by first)
-         (mapv (comp dec* second))))
+         (mapv (comp ls/dec* second))))
   (next-dispatch-sequence [_ jurisdiction]
     (or (d/q '[:find ?n . :in $ ?j
               :where [?e :dispatch-sequence/jurisdiction ?j] [?e :dispatch-sequence/next ?n]]
@@ -378,7 +374,7 @@
       (d/transact! conn [(machine-order->tx value)])
 
       :contract-assessment/set
-      (d/transact! conn [{:assessment/machine-order-id (first path) :assessment/payload (enc payload)}])
+      (d/transact! conn [{:assessment/machine-order-id (first path) :assessment/payload (ls/enc payload)}])
 
       :order/mark-dispatched
       (let [machine-order-id (first path)
@@ -388,7 +384,7 @@
         (d/transact! conn
                      [(machine-order->tx (assoc machine-order-patch :id machine-order-id))
                       {:dispatch-sequence/jurisdiction jurisdiction :dispatch-sequence/next next-n}
-                      {:dispatch/seq (count (dispatch-history s)) :dispatch/record (enc (get result "record"))}])
+                      {:dispatch/seq (count (dispatch-history s)) :dispatch/record (ls/enc (get result "record"))}])
         result)
 
       :order/mark-invoiced
@@ -399,12 +395,12 @@
         (d/transact! conn
                      [(machine-order->tx (assoc machine-order-patch :id machine-order-id))
                       {:invoice-sequence/jurisdiction jurisdiction :invoice-sequence/next next-n}
-                      {:invoice/seq (count (invoice-history s)) :invoice/record (enc (get result "record"))}])
+                      {:invoice/seq (count (invoice-history s)) :invoice/record (ls/enc (get result "record"))}])
         result)
       nil)
     s)
   (append-ledger! [s fact]
-    (d/transact! conn [{:ledger/seq (count (ledger s)) :ledger/fact (enc fact)}])
+    (d/transact! conn [{:ledger/seq (count (ledger s)) :ledger/fact (ls/enc fact)}])
     fact)
   (with-machine-orders [s machine-orders]
     (when (seq machine-orders) (d/transact! conn (mapv machine-order->tx (vals machine-orders)))) s))
