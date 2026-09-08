@@ -40,7 +40,7 @@
   real machine tool or settling a real invoice itself (that is
   `machtooltrade.operation`'s `:delivery/dispatch`/`:invoice/settle`,
   always human-gated -- see README `Actuation`)."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (defn- unsigned-certificate
   "Every certificate this actor produces is UNSIGNED -- signature is
@@ -117,7 +117,7 @@
     (throw (ex-info "machine-dispatch: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "machine-dispatch: sequence must be >= 0" {})))
-  (let [dispatch-number (str (str/upper-case jurisdiction) "-DISPATCH-" (zero-pad sequence 6))
+  (let [dispatch-number (str (str/upper jurisdiction) "-DISPATCH-" (zero-pad sequence 6))
         record {"record_id" dispatch-number
                 "kind" "machine-dispatch-draft"
                 "machine_order_id" machine-order-id
@@ -143,7 +143,7 @@
     (throw (ex-info "machine-invoice: jurisdiction required" {})))
   (when (< sequence 0)
     (throw (ex-info "machine-invoice: sequence must be >= 0" {})))
-  (let [invoice-number (str (str/upper-case jurisdiction) "-INVOICE-" (zero-pad sequence 6))
+  (let [invoice-number (str (str/upper jurisdiction) "-INVOICE-" (zero-pad sequence 6))
         record {"record_id" invoice-number
                 "kind" "machine-invoice-draft"
                 "machine_order_id" machine-order-id

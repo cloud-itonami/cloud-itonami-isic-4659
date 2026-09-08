@@ -31,7 +31,7 @@
 
   Usage: `clojure -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [jp-go-dds.skin]
             [langgraph.graph :as g]
             [machtooltrade.facts :as facts]
@@ -267,7 +267,7 @@
   [m]
   (when (map? m)
     (->> (keys m)
-         (filter #(str/includes? (str/lower-case (if (keyword? %) (name %) (str %)))
+         (filter #(str/includes? (str/lower (if (keyword? %) (name %) (str %)))
                                  "approv"))
          (into (sorted-set-by (fn [a b] (compare (str a) (str b))))))))
 
