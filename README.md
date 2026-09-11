@@ -152,9 +152,9 @@ full reasoning, and `test/machtooltrade/governor_contract_test.cljk`'s
 ## Run
 
 ```bash
-clojure -M:dev:run     # walk clean dispatch + invoice lifecycles, plus every HARD-hold case (esp. the two-axis independence pair), through the actor
-clojure -M:dev:test    # governor contract · phase invariants · store parity · registry conformance · facts coverage
-clojure -M:lint        # clj-kondo (errors fail; CI mirrors this)
+kbb -M:dev:run     # walk clean dispatch + invoice lifecycles, plus every HARD-hold case (esp. the two-axis independence pair), through the actor
+kbb -M:dev:test    # governor contract · phase invariants · store parity · registry conformance · facts coverage
+kbb -M:lint        # clj-kondo (errors fail; CI mirrors this)
 ```
 
 ## Robotics premise

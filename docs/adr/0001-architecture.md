@@ -447,7 +447,7 @@ considered:
 - `MemStore` || `DatomicStore` parity is proven by
   `test/machtooltrade/store_contract_test.cljk`, including keyword-field
   round-trip parity (`:machine-category`).
-- 40+ tests pass; lint is clean; the demo (`clojure -M:dev:run`) walks
+- 40+ tests pass; lint is clean; the demo (`kbb -M:dev:run`) walks
   one clean below-threshold dispatch + invoice lifecycle, one clean
   controlled-and-resolved dispatch + invoice lifecycle, and every HARD-
   hold scenario end-to-end, including the load-bearing capability/

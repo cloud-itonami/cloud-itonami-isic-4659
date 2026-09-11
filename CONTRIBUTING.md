@@ -14,8 +14,8 @@ in `machtooltrade.registry`). This repo holds the business blueprint, the
 langgraph-clj actor and the operator contracts.
 
 ```bash
-clojure -M:dev:test
-clojure -M:lint
+kbb -M:dev:test
+kbb -M:lint
 ```
 
 ## Rules
