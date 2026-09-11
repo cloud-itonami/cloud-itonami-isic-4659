@@ -91,7 +91,7 @@ independent layers enforce this (`machtooltrade.governor`'s
 `:delivery/dispatch`/`:invoice/settle` high-stakes gate and
 `machtooltrade.phase`'s phase table, which never puts either op in any
 phase's `:auto` set) -- see `machtooltrade.phase`'s docstring and
-`test/machtooltrade/phase_test.clj`'s
+`test/machtooltrade/phase_test.cljk`'s
 `delivery-dispatch-never-auto-at-any-phase`/
 `invoice-settle-never-auto-at-any-phase`. The actor may draft, check
 and recommend; a human trading supervisor / export-compliance officer
@@ -146,7 +146,7 @@ even though it clears the capability-threshold check cleanly; an
 above-threshold machine sold to an ORDINARY commercial end-user still
 HOLDS (on the capability-threshold check ALONE), even with no end-use
 flag at all. See `docs/adr/0001-architecture.md` Decision 4 for the
-full reasoning, and `test/machtooltrade/governor_contract_test.clj`'s
+full reasoning, and `test/machtooltrade/governor_contract_test.cljk`'s
 `mo-5`/`mo-6`/`mo-8`/`mo-9` fixtures for the executable proof.
 
 ## Run
@@ -208,14 +208,14 @@ audit-ledger stack.
 
 | File | Role |
 |---|---|
-| `src/machtooltrade/store.cljc` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + dispatch AND invoice history (dual history). The double-actuation guards check dedicated `:dispatched?`/`:invoiced?` booleans rather than a `:status` value |
-| `src/machtooltrade/registry.cljc` | Dispatch/invoice draft records AND the pure `capability-threshold-crossed?` range-check function -- a fleet first for the principal-trading cluster (see ADR Decision 2) |
-| `src/machtooltrade/facts.cljc` | Per-jurisdiction machine-tool export-control-CLASSIFICATION-LIST catalog with an official spec-basis citation per entry, honest coverage reporting, explicit confidence gradient |
-| `src/machtooltrade/machtooltradeadvisor.cljc` | **MachToolTradeAdvisor** -- `mock-advisor` ‖ `llm-advisor`; intake/contract-verification/dispatch/invoice proposals |
-| `src/machtooltrade/governor.cljc` | **Precision Machinery Export Governor** -- 7 HARD checks (spec-basis · evidence-incomplete · credit-uncleared · contract-missing · capability-threshold-uncertified · military-end-use-unresolved · counterparty-sanctions-flag-unresolved) + 2 double-actuation guards + 1 soft (confidence/actuation gate) |
-| `src/machtooltrade/phase.cljc` | **Phase 0→3** -- read-only → assisted intake → assisted verify → supervised (dispatch/invoice always human; order intake is the ONLY auto-eligible op) |
-| `src/machtooltrade/operation.cljc` | **OperationActor** -- langgraph StateGraph |
-| `src/machtooltrade/sim.cljc` | demo driver |
+| `src/machtooltrade/store.cljk` | **Store** protocol -- `MemStore` ‖ `DatomicStore` (`langchain.db`) + append-only audit ledger + dispatch AND invoice history (dual history). The double-actuation guards check dedicated `:dispatched?`/`:invoiced?` booleans rather than a `:status` value |
+| `src/machtooltrade/registry.cljk` | Dispatch/invoice draft records AND the pure `capability-threshold-crossed?` range-check function -- a fleet first for the principal-trading cluster (see ADR Decision 2) |
+| `src/machtooltrade/facts.cljk` | Per-jurisdiction machine-tool export-control-CLASSIFICATION-LIST catalog with an official spec-basis citation per entry, honest coverage reporting, explicit confidence gradient |
+| `src/machtooltrade/machtooltradeadvisor.cljk` | **MachToolTradeAdvisor** -- `mock-advisor` ‖ `llm-advisor`; intake/contract-verification/dispatch/invoice proposals |
+| `src/machtooltrade/governor.cljk` | **Precision Machinery Export Governor** -- 7 HARD checks (spec-basis · evidence-incomplete · credit-uncleared · contract-missing · capability-threshold-uncertified · military-end-use-unresolved · counterparty-sanctions-flag-unresolved) + 2 double-actuation guards + 1 soft (confidence/actuation gate) |
+| `src/machtooltrade/phase.cljk` | **Phase 0→3** -- read-only → assisted intake → assisted verify → supervised (dispatch/invoice always human; order intake is the ONLY auto-eligible op) |
+| `src/machtooltrade/operation.cljk` | **OperationActor** -- langgraph StateGraph |
+| `src/machtooltrade/sim.cljk` | demo driver |
 | `test/machtooltrade/*_test.clj` | governor contract (incl. two-axis independence proof) · phase invariants · store parity · registry conformance (incl. capability-threshold range-check unit tests) · facts coverage |
 
 ## Business-process coverage (honest)

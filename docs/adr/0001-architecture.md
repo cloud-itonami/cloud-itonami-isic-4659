@@ -236,7 +236,7 @@ folded check. Three design options were considered:
   end-user, no flag at all) and `mo-6` (deliberately the SAME below-
   threshold spec as the happy-path `mo-1`, sold to a flagged military
   end-user) are the load-bearing pair:
-  `test/machtooltrade/governor_contract_test.clj`'s
+  `test/machtooltrade/governor_contract_test.cljk`'s
   `capability-threshold-uncertified-is-held-and-unoverridable` (mo-5)
   asserts the military-end-use rule did NOT also fire; `military-end-
   use-unresolved-is-a-genuinely-different-failure-mode-from-capability-
@@ -309,7 +309,7 @@ discipline every prior governor's guards establish, informed by
 `machtooltrade.store/Store` is implemented by both `MemStore` (atom-
 backed, default for dev/tests/demo) and `DatomicStore` (`langchain.db`-
 backed), proven to satisfy the same contract in
-`test/machtooltrade/store_contract_test.clj`. Like the computer-and-
+`test/machtooltrade/store_contract_test.cljk`. Like the computer-and-
 software sibling's own store, this one round-trips KEYWORD-valued
 fields (`:machine-category`, `:status`) through an EDN-string encoding
 (the `:kw` field kind) rather than storing them as bare strings.
@@ -445,7 +445,7 @@ considered:
   beyond the "honest coverage" discipline every sibling's own `facts`
   namespace already establishes.
 - `MemStore` || `DatomicStore` parity is proven by
-  `test/machtooltrade/store_contract_test.clj`, including keyword-field
+  `test/machtooltrade/store_contract_test.cljk`, including keyword-field
   round-trip parity (`:machine-category`).
 - 40+ tests pass; lint is clean; the demo (`clojure -M:dev:run`) walks
   one clean below-threshold dispatch + invoice lifecycle, one clean
