@@ -1,5 +1,5 @@
 (ns machtooltrade.sim
-  "Demo driver -- `clojure -M:dev:run`. Walks a clean, ORDINARY (below
+  "Demo driver -- `kbb -M:dev:run`. Walks a clean, ORDINARY (below
   the capability threshold) machine order through intake -> contract
   verification -> physical dispatch (escalate/approve/commit) ->
   invoice settlement (escalate/approve/commit), then exercises every

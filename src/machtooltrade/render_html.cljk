@@ -8,7 +8,7 @@
   stack -- `machtooltrade.operation` (langgraph StateGraph) ->
   `machtooltrade.governor` (Precision Machinery Export Governor) ->
   `machtooltrade.store` (MemStore SSoT) -- exactly the way this repo's
-  own `machtooltrade.sim` demo driver does (`clojure -M:dev:run`, run
+  own `machtooltrade.sim` demo driver does (`kbb -M:dev:run`, run
   and confirmed BEFORE this file was written: its `mo-1`..`mo-9` ids do
   match `machtooltrade.store/demo-data`, so the scenario below was
   safely adapted from it rather than authored from scratch).
@@ -29,7 +29,7 @@
   Two consecutive runs are byte-identical -- verify by rendering twice
   into a fresh temp directory and diffing.
 
-  Usage: `clojure -M:dev:render-html [out-file]`
+  Usage: `kbb -M:dev:render-html [out-file]`
   (default `docs/samples/operator-console.html`)."
   (:require [kotoba.lang.text :as str]
             [jp-go-dds.skin]
@@ -552,7 +552,7 @@
      (section
       "This run"
       (str "Build-time output of <code>machtooltrade.render-html</code> "
-           "(<code>clojure -M:dev:render-html</code>), which drives the real "
+           "(<code>kbb -M:dev:render-html</code>), which drives the real "
            "<code>machtooltrade.operation</code> StateGraph through "
            "<code>machtooltrade.governor</code> into <code>machtooltrade.store</code>. "
            "Every id, number, hold reason and approver below is read back out of that run. "

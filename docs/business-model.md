@@ -321,7 +321,7 @@ value to make coverage look bigger or more precise than it is.
 ## Maturity
 
 `:implemented` -- `MachToolTradeAdvisor` + `Precision Machinery Export
-Governor` run as real, tested code (`clojure -M:dev:test`), promoted
+Governor` run as real, tested code (`kbb -M:dev:test`), promoted
 directly as `:implemented`, following the SAME governed-actor
 architecture as the other prior actors across this fleet, with its own
 distinct, independently-named governor and its own two-axis capability/
