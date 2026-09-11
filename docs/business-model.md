@@ -67,7 +67,7 @@ Equipment, ISIC 4659) and to the three `:social-impact` tags in
 `:transparency`).
 
 This is the rule the companion contract test
-(`test/machtooltrade/governor_contract_test.clj`) encodes end-to-end:
+(`test/machtooltrade/governor_contract_test.cljk`) encodes end-to-end:
 the MachToolTradeAdvisor never dispatches a machine tool or settles an
 invoice the Precision Machinery Export Governor would reject,
 `:delivery/dispatch` and `:invoice/settle` NEVER auto-commit at any
@@ -166,7 +166,7 @@ Axis 1 would wrongly clear this order. Symmetrically, an above-
 threshold, uncertified machine sold to an ordinary commercial buyer with
 no end-use concern at all must still hold on Axis 1 alone. See
 `docs/adr/0001-architecture.md` Decision 4 for the full design
-reasoning and `test/machtooltrade/governor_contract_test.clj`'s
+reasoning and `test/machtooltrade/governor_contract_test.cljk`'s
 `mo-5`/`mo-6`/`mo-8`/`mo-9` fixtures for the executable proof of
 independence in both directions.
 
