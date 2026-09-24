@@ -1,5 +1,5 @@
 (ns machtooltrade.registry-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [machtooltrade.registry :as r]))
 
 ;; ----------------------------- capability-threshold-crossed? (pure range check) -----------------------------
