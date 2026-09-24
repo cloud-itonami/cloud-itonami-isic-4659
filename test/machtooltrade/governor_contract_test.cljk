@@ -24,7 +24,7 @@
   rule. `mo-8` (both conditions present) proves the two checks are not
   even mutually exclusive. `mo-9` (both conditions present, both
   resolved) proves a controlled-AND-flagged order can still clear."
-  (:require [clojure.test :refer [deftest is testing]]
+  (:require [kotoba.test :refer [deftest is testing]]
             [langgraph.graph :as g]
             [machtooltrade.store :as store]
             [machtooltrade.operation :as op]))
